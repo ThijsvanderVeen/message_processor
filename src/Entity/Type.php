@@ -24,8 +24,9 @@ class Type
     #[ORM\OneToMany(targetEntity: Message::class, mappedBy: 'type')]
     private Collection $messages;
 
-    public function __construct()
+    public function __construct(string $name)
     {
+        $this->name = $name;
         $this->messages = new ArrayCollection();
     }
 
